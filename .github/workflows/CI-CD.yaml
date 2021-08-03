@@ -3,7 +3,7 @@ name: Test Continuous Integration and deployment
 on:
   push:
     branches:
-        master
+        -master
   
 jobs:
   build:
@@ -21,4 +21,4 @@ jobs:
 
       - name: Build app
         run: dotnet build -c Release --no-restore
-        
+
