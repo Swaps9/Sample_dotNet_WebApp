@@ -1,4 +1,4 @@
-name: Test continuous Integration and deployment
+name: Test Continuous Integration and deployment
 
 on:
   push:
