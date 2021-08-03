@@ -2,23 +2,23 @@ name: Test Continuous Integration and deployment
 
 on:
   push:
-    branches:
-        -master
+    branches: [ master ]
   
 jobs:
-  build:
+      # use ubuntu-latest image to run steps on
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Check out Code
-        uses: actions/checkout@v2
+       - uses: actions/checkout@v2
 
-      - name: dotnet version
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '5.0.x'
-      - name: Restore dependancies
-        run: dotnet restore
+       - name: Setup .NET Core SDK
+          uses: actions/setup-dotnet@v1
+          with:
+            dotnet-version: 5.0
 
-      - name: Build app
-        run: dotnet build -c Release --no-restore
+       - name: Restore dependancies
+          run: dotnet restore
+
+       - name: Build app
+          run: dotnet build -c Release --no-restore
 
