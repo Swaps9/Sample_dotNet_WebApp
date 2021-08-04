@@ -19,4 +19,6 @@ jobs:
 
        - name: Build app
          run: dotnet build -c Release --no-restore
+       - name: Run Automatesd Test
+         run: dotnet test -c Release --no-restore
 
