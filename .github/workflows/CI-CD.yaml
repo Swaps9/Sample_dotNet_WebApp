@@ -22,3 +22,12 @@ jobs:
        - name: Run Automatesd Test
          run: dotnet test -c Release --no-restore
 
+       - name: Publish App to Azure
+         run: dotnet publish -c -o ./out
+
+       - name: Deploy to Azure
+         run: azure/webapps-deploy@v2
+         with:
+          app-name: dirx-devops-test
+          publish-profile: ${{ secrets.AZURE_PUBLISH_SECRETS }}
+          package : ./out
