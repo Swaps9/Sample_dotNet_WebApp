@@ -23,11 +23,11 @@ jobs:
          run: dotnet test -c Release --no-restore
 
        - name: Publish App to Azure
-         run: dotnet publish -c -o ./out
+         run: dotnet publish --configuration Release -o './out'
 
        - name: Deploy to Azure
          uses: azure/webapps-deploy@v2
          with:
           app-name: dirx-devops-test - Web Deploy
           publish-profile: ${{ secrets.AZURE_PUBLISH_SECRETS }}
-          package : ./out
+          package : './out'
