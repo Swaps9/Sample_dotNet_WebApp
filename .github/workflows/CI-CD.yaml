@@ -28,6 +28,6 @@ jobs:
        - name: Deploy to Azure
          uses: azure/webapps-deploy@v2
          with:
-          app-name: dirx-devops-test - Web Deploy
+          app-name: dirx-devops-test
           publish-profile: ${{ secrets.AZURE_PUBLISH_SECRETS }}
           package : './out'
