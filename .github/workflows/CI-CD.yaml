@@ -25,7 +25,7 @@ jobs:
        - name: Publish App to Azure
          run: dotnet publish --configuration Release -o './out'
 
-       - name: Deploy to Azure
+       - name: Deploy to Azure environment
          uses: azure/webapps-deploy@v2
          with:
           app-name: dirx-devops-test
